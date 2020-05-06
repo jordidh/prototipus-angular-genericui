@@ -9,11 +9,12 @@ import { MenuComponent } from './menu/menu.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ContextmenuComponent } from './contextmenu/contextmenu.component';
 import { MenuService } from './menu.service';
+import { ToolbarService } from './toolbar.service';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpClientModule ],
   declarations: [ AppComponent, HelloComponent, MenuComponent, ToolbarComponent, ContextmenuComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [MenuService]
+  providers: [MenuService, ToolbarService]
 })
 export class AppModule { }

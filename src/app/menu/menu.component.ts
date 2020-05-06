@@ -27,4 +27,8 @@ export class MenuComponent implements OnInit {
       dropdownContent.style.display = "block";
     }
   }
+
+  setMenuId(id) {
+    menuService.setSelectedMenu(id);
+  }
 }

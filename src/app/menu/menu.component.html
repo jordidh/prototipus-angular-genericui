@@ -6,11 +6,11 @@
     </button>
     <div class="dropdown-container">
       <div *ngFor="let subitem of item.subItems">
-          <a href="{{ subitem.route }}">{{ subitem.text }}</a>
+          <a href="{{ subitem.route }}" (click)="setMenuId(subitem.id)">{{ subitem.text }}</a>
       </div>
     </div>
   </ng-template>
   <ng-template #withOutSubItems>
-    <a href="{{ item.route }}">{{ item.text }}</a>
+    <a href="{{ item.route }}" (click)="setMenuId(item.id)">{{ item.text }}</a>
   </ng-template>
 </div>

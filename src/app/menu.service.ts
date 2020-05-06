@@ -5,7 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MenuService {
-  items = [ 
+  // Menúús que l'usuari actual pot veure
+  menu = [ 
     { id:1, text:'pantalla 1', subItems: [ { id:10, text:'pantalla 1.1', route:'#'}, { id:11, text:'pantalla 1.2', route:'#'} ] }, 
     { id:2, text:'pantalla 2', route:'#' }, 
     { id:3, text:'pantalla 3', route:'#' },
@@ -17,13 +18,25 @@ export class MenuService {
     { id:9, text:'pantalla 9', subItems: [ { id:90, text:'pantalla 9.1', route:'#'}, { id:91, text:'pantalla 7.2', route:'#'} ] }
   ];
 
+  selectedMenuId = 0;
+
   constructor(
     private http: HttpClient
   ) { }
 
   getMenu() {
-    //return this.http.get('/assets/shipping.json');
-    return this.items;
+    //return this.http.get('/assets/menus.json');
+    return this.menu;
+  }
+
+  getSelectedMenu() {
+    //return this.http.get('/assets/menus.json');
+    return this.selectedMenuId;
+  }
+
+  setSelectedMenu(id) {
+    //return this.http.get('/assets/menus.json');
+    this.selectedMenuId = id;
   }
 
 }
