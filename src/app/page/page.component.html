@@ -8,8 +8,8 @@
     #agGrid
     style="width: 500px; height: 500px;"
     class="ag-theme-alpine"
-    [rowData]="rowData | async"
-    [columnDefs]="columnDefs"
+    [rowData]="gridData | async"
+    [columnDefs]="gridColumnDefs"
     rowSelection="multiple"
     >
   </ag-grid-angular> 
@@ -17,6 +17,6 @@
 <ng-template #showChart>
   <ag-charts-angular
     style="position: relative; top: 0; right: 0; bottom: 0; left: 0;"
-    [options]="options">
+    [options]="chartOptions">
   </ag-charts-angular>
 </ng-template>
