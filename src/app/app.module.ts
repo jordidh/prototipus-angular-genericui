@@ -10,12 +10,20 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ContextmenuComponent } from './contextmenu/contextmenu.component';
 import { MenuService } from './menu.service';
 import { ToolbarService } from './toolbar.service';
-import { AgGridModule } from 'ag-grid-angular';
 import { PageComponent } from './page/page.component';
 import { PageService } from './page.service';
 
+import { AgGridModule } from 'ag-grid-angular';
+import { AgChartsAngularModule } from 'ag-charts-angular';
+
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, HttpClientModule, AgGridModule.withComponents([]) ],
+  imports:      [ 
+    BrowserModule, 
+    FormsModule, 
+    HttpClientModule, 
+    AgGridModule.withComponents([]), 
+    AgChartsAngularModule 
+  ],
   declarations: [ AppComponent, HelloComponent, MenuComponent, ToolbarComponent, ContextmenuComponent, PageComponent ],
   bootstrap:    [ AppComponent ],
   providers: [MenuService, ToolbarService, PageService]

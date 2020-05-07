@@ -1,11 +1,19 @@
-<button (click)="getSelectedRows()">Get Selected Rows</button>
-
-<ag-grid-angular
-  #agGrid
-  style="width: 500px; height: 500px;"
-  class="ag-theme-alpine"
-  [rowData]="rowData | async"
-  [columnDefs]="columnDefs"
-  rowSelection="multiple"
-  >
-</ag-grid-angular>
+<div *ngIf="selectedView === 'grid';  then showGrid; else showChart"></div>
+<ng-template #showGrid>
+  <button (click)="getSelectedRows()">Get Selected Rows</button>
+  <ag-grid-angular
+    #agGrid
+    style="width: 500px; height: 500px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData | async"
+    [columnDefs]="columnDefs"
+    rowSelection="multiple"
+    >
+  </ag-grid-angular> 
+</ng-template>
+<ng-template #showChart>
+  <ag-charts-angular
+    style="position: absolute; top: 0; right: 0; bottom: 0; left: 0;"
+    [options]="options">
+  </ag-charts-angular>
+</ng-template>
