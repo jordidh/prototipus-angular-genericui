@@ -73,4 +73,12 @@ export class PageComponent implements OnInit {
     const selectedDataStringPresentation = selectedData.map( node => node.make + ' ' + node.model).join(', ');
     alert(`Selected nodes: ${selectedDataStringPresentation}`);
   }
+
+  setGridView() {
+    this.selectedView = 'grid';
+  }
+
+  setChartView() {
+    this.selectedView = 'chart';
+  }
 }

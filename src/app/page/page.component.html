@@ -1,3 +1,6 @@
+<button (click)="setGridView()">Grid</button>
+<button (click)="setChartView()">Chart</button>
+<br>
 <div *ngIf="selectedView === 'grid';  then showGrid; else showChart"></div>
 <ng-template #showGrid>
   <button (click)="getSelectedRows()">Get Selected Rows</button>
@@ -13,7 +16,7 @@
 </ng-template>
 <ng-template #showChart>
   <ag-charts-angular
-    style="position: absolute; top: 0; right: 0; bottom: 0; left: 0;"
+    style="position: relative; top: 0; right: 0; bottom: 0; left: 0;"
     [options]="options">
   </ag-charts-angular>
 </ng-template>
