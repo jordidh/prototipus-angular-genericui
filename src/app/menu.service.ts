@@ -18,7 +18,8 @@ export class MenuService {
     { id:9, text:'pantalla 9', subItems: [ { id:90, text:'pantalla 9.1', route:'#'}, { id:91, text:'pantalla 7.2', route:'#'} ] }
   ];
 
-  selectedMenuId = 0;
+  // menu = { id:1, text:'pantalla 1', subItems: [...] }
+  selectedMenu = {};
 
   constructor(
     private http: HttpClient
@@ -30,13 +31,11 @@ export class MenuService {
   }
 
   getSelectedMenu() {
-    //return this.http.get('/assets/menus.json');
-    return this.selectedMenuId;
+    return this.selectedMenu;
   }
 
-  setSelectedMenu(id) {
-    //return this.http.get('/assets/menus.json');
-    this.selectedMenuId = id;
+  setSelectedMenu(menu) {
+    this.selectedMenu = menu;
   }
 
 }

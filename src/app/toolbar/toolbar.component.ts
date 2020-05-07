@@ -9,7 +9,8 @@ import { ToolbarService } from '../toolbar.service';
 })
 export class ToolbarComponent implements OnInit {
   toolbarItems;
-  menu;
+  toolbarItemsForSelectedMenu;
+  selectedMenu;
 
   constructor(
     private toolbarService: ToolbarService,
@@ -18,10 +19,21 @@ export class ToolbarComponent implements OnInit {
 
   ngOnInit() {
     this.toolbarItems = this.toolbarService.getTools();
-    this.menu = this.menuService.getMenu();
+    this.selectedMenu = this.menuService.getSelectedMenu();
   }
 
   openCloseToolbar() {
+    // Recuperem les eines segons al menu que estem
+    this.selectedMenu = this.menuService.getSelectedMenu();
+    this.toolbarItemsForSelectedMenu = [];
+    for (var i = 0; i < this.toolbarItems.length; i++) {
+      if (this.toolbarItems[i].menuId === this.selectedMenu.id) {
+        this.toolbarItemsForSelectedMenu = this.toolbarItems[i].tools;
+        break;
+      }
+    }
+
+    // Mostrem la llista d'eines
     var dropdown = document.getElementById("dropdown-toolbar")
     dropdown.classList.toggle("show");
   }

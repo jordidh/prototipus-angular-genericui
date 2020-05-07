@@ -1,17 +1,13 @@
 <div class="dropdown">
-  <button (click)="openCloseToolbar()" class="dropbtn">Toolbar</button>
+  <button (click)="openCloseToolbar()" class="dropbtn">Toolbar {{ selectedMenu.text }}</button>
   <div id="dropdown-toolbar" class="dropdown-content">
     <input type="text" placeholder="Search.." id="myInput" (keyup)="filterFunction()">
-    <a href="#about">About</a>
-    <a href="#base">Base</a>
-    <a href="#blog">Blog</a>
-    <a href="#contact">Contact</a>
-    <a href="#custom">Custom</a>
-    <a href="#support">Support</a>
-    <a href="#tools">Tools</a>
+    <div *ngFor="let tool of toolbarItemsForSelectedMenu">
+      <a href="#">{{ tool.text }}</a>
+    </div>
   </div>
-
-  <div *ngFor="let tool of toolbarItems">
+  <!--
+  <div *ngFor="let tool of toolbarItemsForSelectedMenu">
     <div *ngIf="tool.subItems;  then withSubItems; else withOutSubItems"></div>
     <ng-template #withSubItems>
       <button id="{{ 'dropdown-btn-' + item.id }}" class="dropdown-btn" (click)="openCloseSubMenu(item)">{{ item.text }}
@@ -27,7 +23,7 @@
       <a href="{{ item.route }}">{{ item.text }}</a>
     </ng-template>
   </div>
-
+-->
 
 
 

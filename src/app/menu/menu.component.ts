@@ -28,7 +28,7 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  setMenuId(id) {
-    menuService.setSelectedMenu(id);
+  setMenu(menu) {
+    this.menuService.setSelectedMenu(menu);
   }
 }
