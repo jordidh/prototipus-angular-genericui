@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { PageService } from '../page.service';
 import { AgGridAngular } from 'ag-grid-angular';
 
@@ -19,13 +20,19 @@ export class PageComponent implements OnInit {
   chartOptions: any;
 
   constructor(
+    private route: ActivatedRoute,
     private pageService: PageService
   ) { }
 
   ngOnInit() {
-    this.gridColumnDefs = this.pageService.getGridColumnDefs();
-    this.gridData = this.pageService.getGridData();
-    this.chartOptions = this.pageService.getChartOptions();
+    console.log('page->ngOnInt');
+    this.route.paramMap.subscribe(params => {
+      var pageId = params.get('id');
+
+      this.gridColumnDefs = this.pageService.getGridColumnDefs(pageId);
+      this.gridData = this.pageService.getGridData(pageId);
+      this.chartOptions = this.pageService.getChartOptions(pageId);
+    });
   }
 
   getSelectedRows() {

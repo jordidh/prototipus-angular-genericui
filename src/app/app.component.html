@@ -4,8 +4,10 @@
 </div>
 
 <div id="main">
-  <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776;</span>
   <app-toolbar></app-toolbar>
+  <br>
+  <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776;</span>
   <app-contextmenu></app-contextmenu>
-  <app-page></app-page>  
+  <!-- Acts as a placeholder that Angular dynamically fills based on the current router state. -->
+  <router-outlet></router-outlet>
 </div>

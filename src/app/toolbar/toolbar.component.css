@@ -25,6 +25,8 @@
 #myInput:focus {outline: 3px solid #ddd;}
 
 .dropdown {
+  width: 100%;
+  background-color: #4CAF50;
   position: relative;
   display: inline-block;
 }

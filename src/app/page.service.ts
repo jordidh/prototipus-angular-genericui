@@ -6,20 +6,49 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PageService {
 
+  tempGridColumnDefs = [
+    {headerName: 'TempMin', field: 'min', sortable: true, filter: true, checkboxSelection: true},
+    {headerName: 'TempAvg', field: 'avg', sortable: true, filter: true},
+    {headerName: 'TempMax', field: 'max', sortable: true, filter: true}
+    ];
+  humGridColumnDefs = [
+    {headerName: 'HumMin', field: 'min', sortable: true, filter: true, checkboxSelection: true},
+    {headerName: 'HumAvg', field: 'avg', sortable: true, filter: true},
+    {headerName: 'HumMax', field: 'max', sortable: true, filter: true}
+    ];
+  airGridColumnDefs = [
+    {headerName: 'AirMin', field: 'min', sortable: true, filter: true, checkboxSelection: true},
+    {headerName: 'AirAvg', field: 'avg', sortable: true, filter: true},
+    {headerName: 'AirMax', field: 'max', sortable: true, filter: true}
+    ];
   gridColumnDefs = [
     {headerName: 'Make', field: 'make', sortable: true, filter: true, checkboxSelection: true},
     {headerName: 'Model', field: 'model', sortable: true, filter: true},
     {headerName: 'Price', field: 'price', sortable: true, filter: true}
     ];
 
-  gridData = [];
-  /*
+
+  tempGridData = [
+        { min: 6, avg: 11, max: 14 },
+        { min: 8, avg: 16, max: 18 },
+        { min: 7, avg: 13, max: 15 }
+    ];
+  humGridData = [
+        { min: 6, avg: 11, max: 14 },
+        { min: 8, avg: 16, max: 18 },
+        { min: 7, avg: 13, max: 15 }
+    ];
+  airGridData = [
+        { min: 6, avg: 11, max: 14 },
+        { min: 8, avg: 16, max: 18 },
+        { min: 7, avg: 13, max: 15 }
+    ];
   gridData = [
         { make: 'Toyota', model: 'Celica', price: 35000 },
         { make: 'Ford', model: 'Mondeo', price: 32000 },
         { make: 'Porsche', model: 'Boxter', price: 72000 }
     ];
-    */
+    
   chartData = [
         {
             beverage: 'Coffee',
@@ -64,20 +93,48 @@ export class PageService {
     private http: HttpClient
   ) { }
 
-  getGridColumnDefs() {
-    //return this.http.get('/assets/tools.json');
-    return this.gridColumnDefs;
+  /**
+   * Funció per recuperar les col·lumnes d'una pàgina concreta, especificada pel paràmetre "pageId"
+   * El paràmetre serveix per definir la URL que es cridarà del backend
+   */
+  getGridColumnDefs(pageId) {
+    switch(pageId) {
+      case 'temp':
+        return this.tempGridColumnDefs;
+      case 'hum':
+        return this.humGridColumnDefs;
+      case 'air':
+        return this.airGridColumnDefs;
+      default:
+        return this.gridColumnDefs;
+    }
   }
 
-  getGridData() {
-    // Get data from a remote server
-    return this.gridData = this.http.get('https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/sample-data/rowData.json');
-
-    // Get data hardcoded
-    //return this.gridData;
+  /**
+   * Funció per recuperar les dades del grid d'una pàgina concreta, especificada pel paràmetre "pageId"
+   * El paràmetre serveix per definir la URL que es cridarà del backend
+   */
+  getGridData(pageId) {
+    switch(pageId) {
+      case 'temp':
+        return this.tempGridData;
+      case 'hum':
+        return this.humGridData;
+      case 'air':
+        return this.airGridData;
+      default:
+        return this.gridData;
+        // Si es fa servir una URL s'ha de posar " | async" al template per carregar les dades
+        // [rowData]="gridData | async"
+        //return this.http.get('https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/sample-data/rowData.json');
+    }
   }
 
-  getChartOptions() {
+  /**
+   * Funció per recuperar les dades del chart d'una pàgina concreta, especificada pel paràmetre "pageId"
+   * El paràmetre serveix per definir la URL que es cridarà del backend
+   */
+  getChartOptions(pageId) {
     //return this.http.get('/assets/tools.json');
     return this.chartOptions;
   }
