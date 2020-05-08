@@ -1,0 +1,31 @@
+<div *ngIf="messageType === 'alert'">
+  <div id="alert" class="alert" (click)="closeMessage('alert')">
+    <span class="closebtn">&times;</span>  
+    <strong>Danger!</strong> {{message}}
+  </div>
+  <p>Click on the "x" symbol to close the alert message.</p>
+</div>
+
+<div *ngIf="messageType === 'success'">
+  <div id="success" class="alert success" (click)="closeMessage('success')">
+    <span class="closebtn">&times;</span>  
+    <strong>Success!</strong> {{message}}
+  </div>
+  <p>Click on the "x" symbol to close the alert message.</p>
+</div>
+
+<div *ngIf="messageType === 'info'">
+  <div id="info" class="alert info" (click)="closeMessage('info')">
+    <span class="closebtn">&times;</span>  
+    <strong>Info!</strong> {{message}}
+  </div>
+  <p>Click on the "x" symbol to close the alert message.</p>
+</div>
+
+<div *ngIf="messageType === 'warning'">
+  <div id="warning" class="alert warning" (click)="closeMessage('warning')">
+    <span class="closebtn">&times;</span>  
+    <strong>Warning!</strong> {{message}}
+  </div>
+  <p>Click on the "x" symbol to close the alert message.</p>
+</div>
