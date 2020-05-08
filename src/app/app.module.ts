@@ -14,6 +14,7 @@ import { PageService } from './page.service';
 import { AgGridModule } from 'ag-grid-angular';
 import { AgChartsAngularModule } from 'ag-charts-angular';
 import { ErrorComponent } from './error/error.component';
+import { MessageService } from './message.service';
 
 @NgModule({
   imports:      [ 
@@ -24,11 +25,12 @@ import { ErrorComponent } from './error/error.component';
     AgChartsAngularModule,
     RouterModule.forRoot([
       { path: 'page/:id', component: PageComponent },
+      { path: 'error/:id', component: ErrorComponent },
       { path: '**', component: ErrorComponent }
     ])
   ],
   declarations: [ AppComponent, MenuComponent, PageComponent, ErrorComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [MenuService, ToolbarService, PageService]
+  providers: [MenuService, ToolbarService, PageService, MessageService]
 })
 export class AppModule { }

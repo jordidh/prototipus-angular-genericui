@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-error',
@@ -12,12 +13,13 @@ export class ErrorComponent implements OnInit {
   message;
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private messageService: MessageService
   ) { }
 
   ngOnInit() {
-    this.messageType = 'info';
-    this.message = "Select a menu option";
+    this.messageType = '';
+    this.message = '';
     // Ens subscribim per executar el codi del callback cada vegada que es produeixi un click en el menu que desenvoqui en una crida al route
     this.route.paramMap.subscribe(params => {
       //this.messageType = products[+params.get('messageType')];

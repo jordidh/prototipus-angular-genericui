@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PageService } from '../page.service';
 import { ToolbarService } from '../toolbar.service';
 import { MenuService } from '../menu.service';
+import { MessageService } from '../message.service';
 import { AgGridAngular } from 'ag-grid-angular';
 
 @Component({
@@ -30,7 +31,8 @@ export class PageComponent implements OnInit {
     private route: ActivatedRoute,
     private pageService: PageService,
     private menuService: MenuService,
-    private toolbarService: ToolbarService
+    private toolbarService: ToolbarService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit() {
