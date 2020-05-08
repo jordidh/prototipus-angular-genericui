@@ -4,10 +4,7 @@
 </div>
 
 <div id="main">
-  <app-toolbar></app-toolbar>
-  <br>
   <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776;</span>
-  <app-contextmenu></app-contextmenu>
-  <!-- Acts as a placeholder that Angular dynamically fills based on the current router state. -->
+  <!-- router-outlet: Acts as a placeholder that Angular dynamically fills based on the current router state. -->
   <router-outlet></router-outlet>
 </div>

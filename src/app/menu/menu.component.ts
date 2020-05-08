@@ -29,6 +29,7 @@ export class MenuComponent implements OnInit {
   }
 
   setMenu(menu) {
+    console.log(menu);
     this.menuService.setSelectedMenu(menu);
   }
 }

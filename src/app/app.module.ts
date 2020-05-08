@@ -6,8 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { ContextmenuComponent } from './contextmenu/contextmenu.component';
 import { MenuService } from './menu.service';
 import { ToolbarService } from './toolbar.service';
 import { PageComponent } from './page/page.component';
@@ -28,7 +26,7 @@ import { AgChartsAngularModule } from 'ag-charts-angular';
       { path: '**', component: AppComponent }
     ])
   ],
-  declarations: [ AppComponent, MenuComponent, ToolbarComponent, ContextmenuComponent, PageComponent ],
+  declarations: [ AppComponent, MenuComponent, PageComponent ],
   bootstrap:    [ AppComponent ],
   providers: [MenuService, ToolbarService, PageService]
 })
