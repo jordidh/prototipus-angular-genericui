@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MenuService } from './menu.service';
 import { ToolbarService } from './toolbar.service';
 import { PageService } from './page.service';

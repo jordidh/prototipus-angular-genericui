@@ -20,7 +20,7 @@ export class MenuComponent implements OnInit {
   openCloseSubMenu(menuItem) {
     var dropdown = document.getElementById("dropdown-btn-" + menuItem.id)
     dropdown.classList.toggle("active");
-    var dropdownContent = dropdown.nextElementSibling;  // retorna els elements a continuació de l'actual => retornarà els subItems
+    var dropdownContent = <HTMLElement>dropdown.nextElementSibling;  // retorna els elements a continuació de l'actual => retornarà els subItems
     if (dropdownContent.style.display === "block") {
       dropdownContent.style.display = "none";
     } else {

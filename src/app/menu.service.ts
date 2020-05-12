@@ -34,7 +34,7 @@ export class MenuService {
   ];
 
   // menu = { id:1, text:'pantalla 1', pageId:'', subItems: [...] }
-  selectedMenu = {};
+  selectedMenu = { pageId: 0 };
 
   constructor(
     private http: HttpClient
@@ -48,6 +48,12 @@ export class MenuService {
   getSelectedMenu() {
     return this.selectedMenu;
   }
+
+  /*
+  getSelectedMenuPageId() {
+    return this.selectedMenu.pageId;
+  }
+  */
 
   setSelectedMenu(menu) {
     this.selectedMenu = menu;
